@@ -1,0 +1,8 @@
+<launch>
+<node name="ry_asr_sample" pkg="roboyun_asr" type="asr_online.py" />
+<node name="ry_tts_sample" pkg="roboyun_tts" type="tts_online.py" />
+<node name="ry_afr_sample" pkg="roboyun_afr" type="afr_online.py" />
+<node name="ry_chat_sample" pkg="roboyun_chat" type="chat_online.py" />
+<node name="ry_nlu_sample" pkg="roboyun_nlu" type="nlu_online.py" />
+<node name="ry_robot_sample" pkg="roboyun_robot_sample" type="robot_sample.py" />
+</launch>
