@@ -6,7 +6,7 @@ import base64
 import time
 
 
-from roboyun_robot_sample.srv import SAMPLE_CMD
+from roboyun_robot_sample.srv import *
 from roboyun_asr.srv import ASR
 from roboyun_tts.srv import TTS
 from roboyun_afr.srv import AFR
@@ -65,7 +65,7 @@ def chat(content):
     try:
         chat_s = rospy.ServiceProxy('chat_online',CHAT)
         res = chat_s(content)
-        tts(res.processing_result_json)
+        tts(res.answer_json)
     except rospy.ServiceException,e:
         print 'chat call failed:%s'%e
 
@@ -89,7 +89,7 @@ def sample_switch(msg):
     
 def handle_sample(req):
 
-    return SAMPLEResponse(sample_switch(req.cmd))
+    return SAMPLE_CMDResponse(sample_switch(req.cmd))
 
 def sample_server():
     rospy.init_node('roboyun_robot_sample')
