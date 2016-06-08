@@ -12,10 +12,11 @@ from roboyun_tts.srv import TTS
 from roboyun_afr.srv import AFR
 from roboyun_nlu.srv import NLU
 from roboyun_chat.srv import CHAT
+from roboyun_led.srv import LED
 
 import rospy
 
-'''
+
 def led():
 
     rospy.wait_for_service('led')
@@ -25,7 +26,7 @@ def led():
     except rospy.ServiceException,e:
         print 'led call failed:%s'%e
 
-'''
+
 
 
 def tts(content):
@@ -80,9 +81,9 @@ def sample_switch(msg):
         asr()
     elif msg == 'nlu':
         print msg    
-    #elif msg == 'led':
-    #    tts('下面进行10秒钟的灯光演示')
-    #    led()    
+    elif msg == 'led':
+        tts('下面进行10秒钟的灯光演示')
+        led()    
 
 
     return msg
